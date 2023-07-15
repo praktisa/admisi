@@ -1,0 +1,10 @@
+.selected{
+    background: #eaeaea;
+    color: #121212;
+    font-weight: bold;
+}
+
+
+.notSelected:hover{
+    background: #eaeaea10;
+}

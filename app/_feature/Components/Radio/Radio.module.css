@@ -1,0 +1,22 @@
+
+.Radio label{
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 10px 20px;
+    border: 1px solid #eaeaea50;
+    transition: 0.4s ease;
+    font-weight: bold;
+}
+
+.Radio label:hover{
+    background: #eaeaea10;
+}
+
+.Radio input{
+    display: none;
+}
+
+.Radio input:checked + label{
+    background: #eaeaea;
+    color: #121212;
+}

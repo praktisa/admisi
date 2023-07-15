@@ -1,0 +1,71 @@
+.CardPosition{
+    position: relative;
+    top: 0;
+    left:0;
+    transition: 0.4s ease ;
+}
+
+.CardLayout{
+    display: grid;
+    grid-template-areas: "img" "act";
+    border-radius: 7px;
+    overflow: hidden;
+    transition: 0.4s ease ;
+    position: relative;
+    top: 0;
+    left:0;
+}
+
+
+.Layout__img{
+    grid-area: img;
+    /* background: red; */
+    overflow: hidden;
+}
+
+.Layout__act{
+    grid-area: act;
+    background: #eaeaea;
+    color: #121212;
+    display: grid;
+    grid-template-areas: "name pinjam";
+    grid-template-columns: 0.7fr 0.35fr;
+}
+
+.Layout__CarName{
+    grid-area: name;
+    padding: 15px 10px;
+}
+
+.Layout__Button{
+    grid-area: pinjam;
+}
+
+
+.CarName{
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+}
+
+.CarPLAT{
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.5;
+    letter-spacing: -0.3px;
+}
+
+.Layout__Button{
+    /* background: red; */
+    display: grid;
+    place-items: center;
+}
+
+.Layout__Button button{
+    all: unset;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: #121212;
+    color: #eaeaea;
+}
