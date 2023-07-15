@@ -5,7 +5,7 @@ export default async function GetPegawai() {
         next: { revalidate: 60 }
     })
 
-
+    // mantap jiwa
     if (!res.ok) {
 
         throw new Error('Failed to fetch data')
