@@ -1,6 +1,6 @@
 import React from 'react'
 import AM from './AuthModal.module.css'
-import BasicInput from '../../Input/BasicInput'
+import BasicInput from '../../Input/Basic/BasicInput'
 import Login from '@/app/_feature/Auth/Login'
 
 export default function AuthModal() {
@@ -8,7 +8,8 @@ export default function AuthModal() {
         <>
             <div className={AM['container']}>
                 <div className={AM['layout']} >
-                    <h1>Admisi | Login</h1>
+                    <span className={AM['head']} >Admisi</span>
+
 
                     <div className={AM['form']} >
                         <Login />

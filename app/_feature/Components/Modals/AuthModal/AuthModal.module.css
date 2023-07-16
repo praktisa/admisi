@@ -5,19 +5,28 @@
     height: 100vh;
     width: 100vw;
     padding: 20px;
+
+    display: grid;
+    justify-items: center;
 }
 
 .layout{
     display: grid;
-    background: red;
-
-}
-
-.layout h1{
+    height: 30vw;
+    width: 25%;
     text-align: center;
-
 }
 
-.form{
-    
+
+.head{
+    font-size: 5vw;
+    font-weight: bold;
+    display: grid;
+    place-items: center;
 }
+
+
+.form button{
+    margin-top: 10px;
+}
+

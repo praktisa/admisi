@@ -95,6 +95,24 @@ a {
   text-decoration: none;
 }
 
+input{
+  border: 0;
+  background: transparent;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+
+}
+
+input::placeholder{
+    opacity:0;
+}
+
+button{
+  border: 0;
+}
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
