@@ -1,0 +1,23 @@
+.container{
+    
+    position: fixed;
+   
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+}
+
+.layout{
+    display: grid;
+    background: red;
+
+}
+
+.layout h1{
+    text-align: center;
+
+}
+
+.form{
+    
+}

@@ -37,21 +37,18 @@ export async function GET(request: NextRequest, response: NextResponse) {
 
     let DataPegawai: string
 
-    const { searchParams } = new URL(request.url)
-    const option = searchParams.get('option')
+    console.log("RESPON SUR", request)
 
     const path = 'C:/next/admisi/app/_feature/Kepegawaian/Data/Pegawai.json'
 
     if (fs.existsSync(path)) {
+        // console.log("ADA")
 
-        if (option != 'cek') {
-            DataPegawai = fs.readFileSync(path, 'utf-8')
-        } else {
-            DataPegawai = "ada"
-        }
+        DataPegawai = fs.readFileSync(path, 'utf-8')
+
 
     } else {
-        DataPegawai = "tidak ada"
+        return NextResponse.json({ data: "tidak Ada" })
     }
 
 

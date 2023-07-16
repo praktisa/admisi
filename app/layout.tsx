@@ -3,6 +3,7 @@ import AppLayout from './_feature/Components/Layout/AppLayout'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import GetPegawai from '@/app/_feature/Kepegawaian/Data/GetPegawai'
+import AuthModal from './_feature/Components/Modals/AuthModal/AuthModal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,22 +18,28 @@ interface children {
 
 export default async function RootLayout({ children }: children) {
 
-  const WEE = await GetPegawai()
+  const isPegawaiAssign = await GetPegawai("cek")
+  const isLogin: string = "belum"
 
-  console.log("WE APASIH", WEE)
+
 
   return (
     <html lang="en">
       <body className={inter.className}>
 
         {
-          WEE.data === "tidak Ada"
+          isPegawaiAssign.data === "tidak Ada"
             ?
             <Preparation />
             :
-            <AppLayout>
-              {children}
-            </AppLayout>
+            isLogin === "belum"
+              ?
+              <AuthModal />
+              :
+              <AppLayout>
+                {children}
+              </AppLayout>
+
         }
 
 

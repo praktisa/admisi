@@ -1,5 +1,5 @@
 
-export default async function GetPegawai(option: string) {
+export default async function Auth(option: string) {
     const res = await fetch(`${process.env.HOST_URL}/Admin/api/preparation?option=${option}`, {
         method: "GET",
         headers: {
