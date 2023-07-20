@@ -1,6 +1,6 @@
 import CekTabel from '@/app/_feature/Database/CekTabel';
 import Connection from '@/app/_feature/Database/Connection';
-import { CreateFileJSON } from '@/app/_feature/Kepegawaian/Upload/CreateFileJSON';
+import { CreateFileJSON, ReadFileJSON } from '@/app/_feature/Kepegawaian/Upload/CRUDJSON';
 import { NextRequest, NextResponse } from 'next/server'
 
 
@@ -30,27 +30,15 @@ export async function POST(request: NextRequest, response: NextResponse) {
     return NextResponse.json({ data: "SUCCESS" })
 }
 
-import fs from 'fs';
-
-
 export async function GET(request: NextRequest, response: NextResponse) {
 
     let DataPegawai: string
 
-    console.log("RESPON SUR", request)
+
 
     const path = 'C:/next/admisi/app/_feature/Kepegawaian/Data/Pegawai.json'
 
-    if (fs.existsSync(path)) {
-        // console.log("ADA")
-
-        DataPegawai = fs.readFileSync(path, 'utf-8')
-
-
-    } else {
-        return NextResponse.json({ data: "tidak Ada" })
-    }
-
+    DataPegawai = ReadFileJSON(path)
 
     return NextResponse.json({ data: DataPegawai })
 

@@ -1,26 +1,28 @@
-'use client';
-import Reac, { useState } from 'react'
+// 'use client'
 import But from '@/app/_feature/Components/Button/Button.module.css'
 
 interface ButtonSubit_Inter {
     onClick: any,
     children: React.ReactNode
+    warn: boolean
+    success: boolean
 }
 
 
 
-export default function ButtonClick({ onClick, children }: ButtonSubit_Inter) {
+export default function ButtonClick({ onClick, children, warn, success }: ButtonSubit_Inter) {
 
-    const [load, setLoad] = useState(false)
 
-    function Click() {
-        setLoad(true)
-    }
 
     return (
         <>
             <div className={But['layout']} >
-                <button className={But['display']} onClick={() => onClick()}>{children}  </button>
+                <button className={`
+                ${But['display']} 
+                ${warn === true ? But['warn'] : null}
+                 ${success === true ? But['success'] : null}
+                 
+                `} onClick={() => onClick()}>{children}  </button>
             </div>
         </>
     )

@@ -1,6 +1,6 @@
 import CekTabel from '@/app/_feature/Database/CekTabel';
 import Connection from '@/app/_feature/Database/Connection';
-import { CreateFileJSON } from '@/app/_feature/Kepegawaian/Upload/CreateFileJSON';
+import { CreateFileJSON } from '@/app/_feature/Kepegawaian/Upload/CRUDJSON';
 import { NextRequest, NextResponse } from 'next/server'
 
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import AM from './AuthModal.module.css'
-import BasicInput from '../../Input/Basic/BasicInput'
-import Login from '@/app/_feature/Auth/Login'
+import Login from '@/app/_feature/Auth/Login/Login'
 
 export default function AuthModal() {
     return (

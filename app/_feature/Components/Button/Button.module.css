@@ -2,11 +2,12 @@
     display: grid;
     text-align: center;
     user-select: none;
+    place-items: center;
 }
 
 .display{
     
-    
+    width: 100%;
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
@@ -28,6 +29,21 @@
 .display:hover{
     opacity: 1;
 }
+
+
+.warn{
+
+  background: #E50914 !important;
+  color: #fafbfc !important;
+  border-radius: 0;
+  width: 120%;
+}
+
+.success{
+  background: #25D366 !important;
+  color: #121212 !important;
+}
+
 
 @media (prefers-color-scheme: dark) {
   .display {

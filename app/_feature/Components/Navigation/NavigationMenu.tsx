@@ -7,6 +7,7 @@ import NM from './NavigationMenu.module.css'
 export default function NavigationMenu() {
 
     let Data: string[] = [
+        'Dashboard',
         'Kepegawaian',
         'Kendaraan Dinas',
         'Barang Milik Negara',
@@ -15,8 +16,6 @@ export default function NavigationMenu() {
     ]
 
     const segment = useSelectedLayoutSegment() as string
-
-    // console.log("Segment", segment)
 
     return (
         <ul>

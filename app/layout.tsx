@@ -1,9 +1,14 @@
-import Preparation from './_feature/Preparation/Preparation'
-import AppLayout from './_feature/Components/Layout/AppLayout'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import GetPegawai from '@/app/_feature/Kepegawaian/Data/GetPegawai'
+import { cookies } from 'next/headers'
+
+import AppLayout from './_feature/Components/Layout/AppLayout'
 import AuthModal from './_feature/Components/Modals/AuthModal/AuthModal'
+
+import Preparation from './_feature/Preparation/Preparation'
+import GetPegawai from '@/app/_feature/Kepegawaian/Data/GetPegawai'
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,13 +19,14 @@ export const metadata = {
 
 interface children {
   children: React.ReactNode
+
 }
 
 export default async function RootLayout({ children }: children) {
 
   const isPegawaiAssign = await GetPegawai("cek")
-  const isLogin: string = "belum"
 
+  let SessionUser = cookies().get('session')
 
 
   return (
@@ -32,7 +38,9 @@ export default async function RootLayout({ children }: children) {
             ?
             <Preparation />
             :
-            isLogin === "belum"
+            SessionUser === undefined // ubah jadi intercepting
+              // pelajaran >>>> untuk root layout usahakan plain tanpa komponen
+              //  agar saat membuat intercepting route (posisi login aman dari navbar)
               ?
               <AuthModal />
               :

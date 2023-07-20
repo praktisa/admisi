@@ -13,3 +13,15 @@ export function CreateFileJSON(Directory: string, Data: string) {
         console.log("DATA TERSIMPAN", Directory);
     });
 }
+
+export function ReadFileJSON(Directory: string) {
+    let DataPegawai: string
+
+    if (fs.existsSync(Directory)) {
+        DataPegawai = fs.readFileSync(Directory, 'utf-8')
+    } else {
+        DataPegawai = "tidak ada"
+    }
+
+    return DataPegawai
+}

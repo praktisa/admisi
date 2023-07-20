@@ -111,7 +111,7 @@ export function SimpanDataKepegawaian({ data }: SimpanDataKepegawaianinter) {
         let JSON_Data = JSON.stringify(data)
 
         try { // jika dari component fetchnya tidak perlu pakai Induk URL
-            const res = await fetch('/Admin/api/preparation', {
+            const res = await fetch('/Admin/api/Kepegawaian/CRUDPegawai', {
                 method: "POST",
                 body: JSON_Data,
             })
@@ -124,7 +124,7 @@ export function SimpanDataKepegawaian({ data }: SimpanDataKepegawaianinter) {
     return (
 
         <>
-            <ButtonSubmit onSubmit={() => Simpan(data)}>
+            <ButtonSubmit onClick={() => Simpan(data)}>
                 Simpan Pegawai
             </ButtonSubmit>
 

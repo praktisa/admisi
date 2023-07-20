@@ -1,5 +1,5 @@
-import PesanMobil from '@/app/feature/KendaraanDinas/Pinjam'
-import Modals from '@/app/feature/global/Modals/Modals'
+import PesanMobil from '@/app/_feature/KendaraanDinas/Pinjam'
+import Modals from '@/app/_feature/Components/Modals/Modals'
 import React from 'react'
 
 interface Param {
