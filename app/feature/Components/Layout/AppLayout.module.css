@@ -1,0 +1,21 @@
+.layout{
+    display: grid;
+    grid-template-areas: "nav main";
+    grid-template-columns: 0.18fr 0.82fr;
+
+    
+}
+
+.layout__navigation{
+    grid-area: nav;
+    background: red;
+
+
+}
+
+
+.layout__main{
+    grid-area: main;
+
+    padding: 38px 60px;
+}

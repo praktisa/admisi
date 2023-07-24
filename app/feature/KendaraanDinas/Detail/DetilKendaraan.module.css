@@ -1,0 +1,50 @@
+.layout{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fafbfc;
+    color: #121212;
+    gap: 20px;
+    /* height: 70vh; */
+}
+
+.layout__image{
+    /* background: #121212; */
+}
+
+.image_container{
+    
+    border-radius: 8px !important;
+    overflow: hidden;
+     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+
+.layout__detail{
+     /* background: blue; */
+}
+
+.detail__header{
+    display: grid;
+    grid-template-areas: "Nama Back" "Plat Back";
+    grid-template-columns: 0.9fr 0.1fr;
+    grid-template-rows: 0.5fr 0.5fr;
+
+}
+
+.detail__header h1{
+    grid-area: Nama;
+}
+
+.detail__header h4{
+    grid-area: Plat;
+    opacity: 0.8;
+}
+
+.detail__header div{
+    grid-area: Back;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+}

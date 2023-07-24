@@ -1,4 +1,4 @@
-import { ReadFileJSON } from '@/app/_feature/Kepegawaian/Upload/CRUDJSON';
+import { ReadFileJSON } from '@/app/feature/Kepegawaian/Upload/CRUDJSON';
 import { NextRequest, NextResponse } from 'next/server'
 
 

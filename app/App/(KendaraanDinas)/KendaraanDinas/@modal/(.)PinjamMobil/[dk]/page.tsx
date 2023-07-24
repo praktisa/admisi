@@ -1,6 +1,7 @@
-import PesanMobil from '@/app/_feature/KendaraanDinas/Pinjam'
-import Modals from '@/app/_feature/Components/Modals/Modals'
+// import PesanMobil from '@/app/feature/KendaraanDinas/Pinjam'
+import Modals from '@/app/feature/Components/Modals/BasicModal/Modals'
 import React from 'react'
+import DetilKendaraan from '@feature/KendaraanDinas/Detail/DetilKendaraan'
 
 interface Param {
     params: { dk: string }
@@ -12,7 +13,7 @@ export default function page({ params }: Param) {
         <>
 
             <Modals>
-                <div>PESAN MOBIL MODALLLLLLLL {params.dk}</div>
+                <DetilKendaraan dk={params.dk} />
             </Modals>
 
         </>

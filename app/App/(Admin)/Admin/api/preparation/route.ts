@@ -1,6 +1,6 @@
-import CekTabel from '@/app/_feature/Database/CekTabel';
-import Connection from '@/app/_feature/Database/Connection';
-import { CreateFileJSON } from '@/app/_feature/Kepegawaian/Upload/CRUDJSON';
+import CekTabel from '@/app/feature/Database/CekTabel';
+import Connection from '@/app/feature/Database/Connection';
+import { CreateFileJSON } from '@/app/feature/Kepegawaian/Upload/CRUDJSON';
 import { NextRequest, NextResponse } from 'next/server'
 
 
@@ -8,7 +8,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
     const res = await request.json()
     let Stringy_data = JSON.stringify(res)
-    let Directory = "C:/next/admisi/app/_feature/Kepegawaian/Data/Pegawai.json"
+    let Directory = "C:/next/admisi/app/feature/Kepegawaian/Data/Pegawai.json"
     CreateFileJSON(Directory, Stringy_data)
 
 
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
     const { searchParams } = new URL(request.url)
     const option = searchParams.get('option')
 
-    const path = 'C:/next/admisi/app/_feature/Kepegawaian/Data/Pegawai.json'
+    const path = 'C:/next/admisi/app/feature/Kepegawaian/Data/Pegawai.json'
 
     if (fs.existsSync(path)) {
 

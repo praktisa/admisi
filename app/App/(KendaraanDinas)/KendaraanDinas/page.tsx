@@ -1,5 +1,5 @@
-import { GridMobil } from '@/app/_feature/KendaraanDinas/FilterMobil'
-import CarCard from '@/app/_feature/Components/card/CardCar/CarCard'
+import { GridMobil } from '@/app/feature/KendaraanDinas/FilterMobil'
+import CarCard from '@/app/feature/Components/card/CardCar/CarCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 

@@ -1,8 +1,8 @@
-import { CreateFileJSON, ReadFileJSON } from '@/app/_feature/Kepegawaian/Upload/CRUDJSON';
+import { CreateFileJSON, ReadFileJSON } from '@/app/feature/Kepegawaian/Upload/CRUDJSON';
 import { NextRequest, NextResponse } from 'next/server'
 import fs from 'fs';
 
-let Directory = "C:/next/admisi/app/_feature/Kepegawaian/Data/Pegawai.json"
+let Directory = "C:/next/admisi/app/feature/Kepegawaian/Data/Pegawai.json"
 
 export async function POST(request: NextRequest, response: NextResponse) {
 

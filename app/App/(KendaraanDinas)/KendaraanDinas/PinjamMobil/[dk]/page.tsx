@@ -1,4 +1,4 @@
-import DetilKendaraan from '@/app/feature/KendaraanDinas/DetilKendaraan'
+import DetilKendaraan from '@feature/KendaraanDinas/Detail/DetilKendaraan'
 
 import React from 'react'
 
