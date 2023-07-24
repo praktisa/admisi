@@ -3,7 +3,7 @@ import React, { useState, forwardRef, Fragment } from 'react'
 import K from './Kalender.module.css'
 import useCalendar from './_function/useCalendar'
 
-const Kalender = forwardRef<HTMLInputElement | null>(({ }: any, ref) => {
+const Kalender = forwardRef<HTMLInputElement | null>((props, ref) => {
 
     const [Terpilih, setTerpilih] = useState<string[]>([])
 
@@ -29,11 +29,13 @@ const Kalender = forwardRef<HTMLInputElement | null>(({ }: any, ref) => {
             ? [...Terpilih, id]
             : Terpilih.filter(e => e !== id))
 
-        if (ref != null) {
-            ref.current = Terpilih
-        }
 
+        // if (ref != null) {
+        // ref.current = Terpilih
+        // }
     }
+
+    console.log("Terpilih", ref, Terpilih)
 
     return (
         <>
@@ -69,13 +71,13 @@ const Kalender = forwardRef<HTMLInputElement | null>(({ }: any, ref) => {
                             let Perbedaan_Bulan = new Date(tangs).getMonth() != CurrentDate.getMonth() ? K['BedaBulan'] : null
 
 
-                            console.log("id", id, Sekarang)
+                            // console.log("id", id, Sekarang)
 
                             return (
                                 <Fragment key={id}>
                                     <div className={`${Perbedaan_Bulan}`} >
                                         <input
-                                            id={id}
+                                            id={`${i}`}
                                             type='checkbox'
                                             className={K['none']}
                                             checked={CheckBox_Tanggal}
@@ -83,7 +85,7 @@ const Kalender = forwardRef<HTMLInputElement | null>(({ }: any, ref) => {
                                             disabled={Disable}
                                         />
                                         <label
-                                            htmlFor={id}
+                                            htmlFor={`${i}`}
                                             className={`${K['tanggal__display']} ${Klasifikasi_Tanggal} ${Disable_Style}`}
                                         >
                                             {Display}

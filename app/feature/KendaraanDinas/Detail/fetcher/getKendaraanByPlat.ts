@@ -8,7 +8,6 @@ export default async function getKendaraanByPlat(dk: string) {
         headers: {
             Authentication: 'KPPPratamaTabanan908'
         },
-        next: { revalidate: 300 }
     })
 
 

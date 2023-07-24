@@ -17,9 +17,7 @@ export default function Modals({ children }: Inter__Modals) {
             <div className={M['container']} >
 
                 <div className={M['layout']} >
-                    {/* <div className={M['layout__exit']} >
-                        <ButtonBack>Kembali</ButtonBack>
-                    </div> */}
+
 
                     <div className={M['layout__content']} >
                         {children}

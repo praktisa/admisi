@@ -17,8 +17,8 @@ export default async function AppRootLayout({ children }: children) {
 
 
   // cek session ini dilakukan ketika user melakukan proses saja
-  let SessionUser = cookies().get('session')
-  await CekSession(SessionUser?.value)
+  // let SessionUser = cookies().get('session')
+  // await CekSession(SessionUser?.value)
 
 
 

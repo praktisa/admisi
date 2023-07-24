@@ -1,7 +1,7 @@
 .layout{
     display: grid;
     grid-template-areas: "nav main";
-    grid-template-columns: 0.18fr 0.82fr;
+    grid-template-columns: 0.19fr 0.81fr;
 
     
 }

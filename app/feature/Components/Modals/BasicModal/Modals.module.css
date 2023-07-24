@@ -33,7 +33,7 @@
 .layout{
    
 
-    width: 50vw;
+    width: 73vw;
     height: 40vw;
 
     position: relative;
@@ -41,11 +41,29 @@
 
     margin: auto;
 
+    translate: 0 0;
+     scale: 1;
+     opacity: 1;
+    animation: UP 0.4s ease;
    
 }
 
 
 .layout__content{
     grid-area: content;
-    background: blue;
+    /* background: blue; */
+}
+
+@keyframes UP {
+    0%{
+        translate: 0 20px;
+        scale: 0.95;
+        opacity: 0;
+    }
+
+    100%{
+        translate: 0 0;
+         scale: 1;
+         opacity: 1;
+    }
 }
