@@ -21,7 +21,7 @@ export default async function DetilKendaraan({ dk }: inter__pinjam) {
 
     const { str_plat, str_nama, str_img, date_servis } = data.data
 
-    // const refTanggal = useRef<null | HTMLInputElement>(null)
+    const refTanggal = useRef<null | HTMLInputElement>(null)
 
     return (
         <>
@@ -39,7 +39,7 @@ export default async function DetilKendaraan({ dk }: inter__pinjam) {
                             quality={50}
                         /> */}
 
-                        <Kalender />
+                        <Kalender ref={refTanggal} />
                     </div>
                 </div>
 
