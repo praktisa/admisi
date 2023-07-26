@@ -1,13 +1,13 @@
 'use client'
-import React, { useState, forwardRef, Fragment } from 'react'
+import React, { ForwardedRef, forwardRef, Fragment, useLayoutEffect } from 'react'
 import K from './Kalender.module.css'
 import useCalendar from './_function/useCalendar'
+import { setCookie, getCookie } from 'cookies-next';
 
-const Kalender = forwardRef<HTMLInputElement | null>((props, ref) => {
 
-    const [Terpilih, setTerpilih] = useState<string[]>([])
+const Kalender = forwardRef((props, ref: any) => {
 
-    const { CurrentDate, HeadCalendar, CreateCalendar, ChangeMonth } = useCalendar(new Date())
+    const { CurrentDate, ChosenDate, HeadCalendar, CreateCalendar, ChangeMonth, ChoseDate } = useCalendar(new Date())
 
 
     function HeaderController({ head, next, before }: any) {
@@ -22,20 +22,19 @@ const Kalender = forwardRef<HTMLInputElement | null>((props, ref) => {
         )
     }
 
-    function Pilih(e: Event, id: string) {
-        const { target } = e
+    useLayoutEffect(() => {
 
-        setTerpilih((target as HTMLInputElement).checked === true
-            ? [...Terpilih, id]
-            : Terpilih.filter(e => e !== id))
+        ref.current = ChosenDate
+        console.log("ref.current", ref.current)
 
+    }, [ChosenDate])
 
-        // if (ref != null) {
-        // ref.current = Terpilih
-        // }
-    }
-
-    console.log("Terpilih", ref, Terpilih)
+    // function GetChosenDate()
+    // {
+    //     let {current} = ref
+    //     current = ChosenDate
+    //     // ref?.current
+    // }
 
     return (
         <>
@@ -58,7 +57,7 @@ const Kalender = forwardRef<HTMLInputElement | null>((props, ref) => {
                     <div>Sab</div>
 
                     {
-                        CreateCalendar().map((tangs, i) => {
+                        CreateCalendar.map((tangs, i) => {
 
                             let id = new Date(tangs).toString()
                             let Display = new Date(tangs).getDate()
@@ -66,8 +65,8 @@ const Kalender = forwardRef<HTMLInputElement | null>((props, ref) => {
 
                             let Disable = new Date().setHours(0, 0, 0, 0) > new Date(tangs).setHours(0, 0, 0, 0)
                             let Disable_Style = Disable ? K['BedaBulan'] : null
-                            let Klasifikasi_Tanggal = Terpilih.includes(id) ? K['terpilih'] : Sekarang ? K['HariIni'] : K['tidakTerpilih']
-                            let CheckBox_Tanggal = Terpilih.includes(id) ? true : false
+                            let Klasifikasi_Tanggal = ChosenDate.includes(id) ? K['terpilih'] : Sekarang ? K['HariIni'] : K['tidakTerpilih']
+                            let CheckBox_Tanggal = ChosenDate.includes(id) ? true : false
                             let Perbedaan_Bulan = new Date(tangs).getMonth() != CurrentDate.getMonth() ? K['BedaBulan'] : null
 
 
@@ -81,7 +80,7 @@ const Kalender = forwardRef<HTMLInputElement | null>((props, ref) => {
                                             type='checkbox'
                                             className={K['none']}
                                             checked={CheckBox_Tanggal}
-                                            onChange={(e: any) => Pilih(e, id)}
+                                            onChange={(e: any) => { ChoseDate(e, id); }}
                                             disabled={Disable}
                                         />
                                         <label

@@ -5,12 +5,12 @@ import type { NextRequest } from 'next/server'
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
 
-    let SessionUser = request.cookies.get('session')
-    console.log("SessionUser", SessionUser)
+    // let SessionUser = request.cookies.get('session')
+    console.log("SessionUser")
 
-    if (SessionUser === undefined) {
-        return NextResponse.redirect(new URL('/Auth', request.url))
-    }
+    // if (SessionUser === undefined) {
+    //     return NextResponse.redirect(new URL('/Auth', request.url))
+    // }
 
 
 
