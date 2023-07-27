@@ -3,13 +3,14 @@ import styles from './page.module.css'
 import Link from 'next/link'
 
 export default function Home() {
+  
   return (
     <>
 
-      <h1>Hallo Dunia</h1>
+      <h1>Dashboard Admisi</h1>
 
       <Link href={'/Kepegawaian'}>
-        Pindah Ke Kepegawaian
+        Kepegawaian
       </Link>
 
     </>
