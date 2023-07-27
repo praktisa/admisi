@@ -14,8 +14,10 @@ export default function CarCard({ name = "Expander", plat = "DK 1206 XY", img = 
     function Terpinjam({Seksi: string})
     {
         return(
-            <> tes
-                <div>Terpinjam {Seksi}</div>
+            <> 
+                <div className={CC['Terpinjam']}>
+                    Terpinjam {Seksi}
+                </div>
             </>
         )
     }

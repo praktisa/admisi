@@ -21,6 +21,7 @@
     grid-area: img;
     /* background: red; */
     overflow: hidden;
+    position: relative;
 }
 
 
@@ -69,4 +70,15 @@
     border-radius: 4px;
     background: #121212;
     color: #eaeaea;
+}
+
+.Terpinjam{
+   position: absolute; 
+   top: 0;
+   left:0;
+   width: 100%;
+   height: 100%;
+
+   display: grid;
+   place-items: center;
 }
