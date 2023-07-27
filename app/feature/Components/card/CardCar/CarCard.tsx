@@ -11,6 +11,15 @@ interface Card {
 
 export default function CarCard({ name = "Expander", plat = "DK 1206 XY", img = "" }: Card) {
 
+    function Terpinjam({Seksi: string})
+    {
+        return(
+            <>
+                <div>Terpinjam {Seksi}</div>
+            </>
+        )
+    }
+
     return (
 
         <div className={CC['CardPosition']} id={plat}  >
@@ -19,7 +28,7 @@ export default function CarCard({ name = "Expander", plat = "DK 1206 XY", img = 
                 id={name}
                 className={CC['CardLayout']}
 
-            >
+            >   
                 <div className={CC['Layout__img']} >
                     <Image
                         src={`/KendaraanDinas/${img}.jpg`}

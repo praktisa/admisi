@@ -23,6 +23,7 @@
     overflow: hidden;
 }
 
+
 .Layout__act{
     grid-area: act;
     background: #eaeaea;
