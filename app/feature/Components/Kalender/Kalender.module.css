@@ -2,10 +2,11 @@
 .layout{
 
     user-select: none;
-    padding: 10px;
+    padding: 5px;
 
     background: #121212;
-    color: #fafbfc
+    color: #fafbfc;
+    height: 100%;
 }
 
 
@@ -15,8 +16,10 @@
     grid-template-columns: repeat(7,1fr);
     
     text-align: center;
-    gap: 7px;
+    gap: 5px;
     column-gap: 0;
+
+    place-items: center;
 }
 
 .layout__tanggal div{
@@ -78,7 +81,7 @@
     grid-template-columns: 0.97fr 0.01fr 0.01fr 0.01fr;
     align-items: center;
     gap: 5px;
-    padding: 15px 7px;
+    padding: 12px 0 12px 15px;
 }
 
 .arrow{

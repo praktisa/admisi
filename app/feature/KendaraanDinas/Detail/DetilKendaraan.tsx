@@ -16,25 +16,22 @@ export default function DetilKendaraan({ data }: inter__pinjam) {
     const KalenderRef = useRef<React.MutableRefObject<string[] | null>>()
     // case baru diatas merupakan useRef MutableObject
 
+    const SliderRef = useRef<HTMLDivElement | null>(null)
+
     const { str_plat, str_nama, str_img, date_servis } = data
 
-    console.log("KalenderRef", KalenderRef.current)
+    function CEKREF() {
+        console.log("KalenderRef", KalenderRef.current)
+    }
 
-    // function ShowSlider(id, stat) {
-    //     let Slider = document.getElementById(id)
-    //     let Kalender = document.getElementById("Kalender")
-    //     if (stat === true) {
 
-    //         Slider.style.transform = "rotateY(180deg)"
+    function ShowSlider(stat: boolean) {
+        let Slider = SliderRef.current
+        if (Slider) {
+            Slider.style.transform = stat === true ? "rotateY(180deg)" : "rotateY(0)"
+        }
 
-    //     } else {
-
-    //         Slider.style.transform = "rotateY(0)"
-
-    //         console.log("DateRef", DateRef.current)
-
-    //     }
-    // }
+    }
 
     return (
         <>
@@ -42,21 +39,21 @@ export default function DetilKendaraan({ data }: inter__pinjam) {
             <div className={DKD['layout']} >
 
                 <div className={DKD['layout__image']} >
-                    <div className={DKD['image__container']}  >
+                    <div className={DKD['slide__container']} ref={SliderRef}   >
                         <div className={DKD['slide__front']} >
-                            {/* <Image
+                            <Image
                                 src={`/KendaraanDinas/${str_img}.jpg`}
                                 width={471}
-                                height={432}
+                                height={428}
                                 style={{ objectFit: "cover", display: "grid", width: "100%" }}
                                 alt={str_img}
                                 quality={50}
-                            /> */}
-                            <Kalender ref={KalenderRef} />
+                            />
+                            {/* <Kalender ref={KalenderRef} /> */}
                         </div>
 
                         <div className={DKD['slide__back']} >
-                            {/* <Kalender ref={KalenderRef} /> */}
+                            <Kalender ref={KalenderRef} onClose={() => ShowSlider(false)} />
                         </div>
 
                     </div>
@@ -71,7 +68,7 @@ export default function DetilKendaraan({ data }: inter__pinjam) {
                     </div>
 
                     <div className={DKD['detail__form']} >
-                        <div>Pilih Tanggal</div>
+                        <div onClick={() => ShowSlider(true)} >Pilih Tanggal</div>
                         <div>
                             <label htmlFor="tujuan">Tujuan Peminjaman</label>
                             <textarea id="tujuan" rows={8} cols={45} placeholder={`Tujuan Pengunaan ${str_nama} ...`} ></textarea>

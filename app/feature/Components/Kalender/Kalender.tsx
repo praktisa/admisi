@@ -5,7 +5,7 @@ import useCalendar from './_function/useCalendar'
 import { setCookie, getCookie } from 'cookies-next';
 
 
-const Kalender = forwardRef((props, ref: any) => {
+const Kalender = forwardRef(({ onClose }: any, ref: any) => {
 
     const { CurrentDate, ChosenDate, HeadCalendar, CreateCalendar, ChangeMonth, ChoseDate } = useCalendar(new Date())
 
@@ -17,7 +17,7 @@ const Kalender = forwardRef((props, ref: any) => {
                 <h1>{head}</h1>
                 <div onClick={() => before()} className={K['arrow']} >&#8593;</div>
                 <div onClick={() => next()} className={K['arrow']} >&#8595;</div>
-                <div className={K['arrow']}  >&#x2715;</div>
+                <div className={K['arrow']} onClick={onClose} >&#x2715;</div>
             </>
         )
     }
