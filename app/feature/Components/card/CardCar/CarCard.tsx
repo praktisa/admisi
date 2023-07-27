@@ -5,18 +5,19 @@ import Image from 'next/image'
 interface Card {
     name: string,
     plat: string,
-    img: string
+    img: string,
+    seksi: string
 }
 
 
-export default function CarCard({ name = "Expander", plat = "DK 1206 XY", img = "" }: Card) {
+export default function CarCard({ name = "Expander", plat = "DK 1206 XY", img = "", seksi="" }: Card) {
 
-    function Terpinjam({Seksi: string})
+    function Terpinjam({seksi: string})
     {
         return(
             <> 
                 <div className={CC['Terpinjam']}>
-                    Terpinjam {Seksi}
+                    Terpinjam {seksi}
                 </div>
             </>
         )
@@ -32,6 +33,10 @@ export default function CarCard({ name = "Expander", plat = "DK 1206 XY", img = 
 
             >   
                 <div className={CC['Layout__img']} >
+
+                    {
+                        terpinjam.length === 0 ? <Terpinjam seksi={seksi} /> :<></>
+                    }
                     <Image
                         src={`/KendaraanDinas/${img}.jpg`}
                         width={310}
