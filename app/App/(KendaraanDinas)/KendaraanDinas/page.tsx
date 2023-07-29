@@ -34,7 +34,7 @@ export default function Page() {
                         return (
                             <Fragment key={mob.plat}>
                                 <Link href={`KendaraanDinas/PinjamMobil/${slug}`} scroll={false}>
-                                    <CarCard name={mob.name} plat={mob.plat} img={mob.img} />
+                                    <CarCard name={mob.name} plat={mob.plat} img={mob.img} status={""} seksi={""} />
                                 </Link>
                             </Fragment>
                         )

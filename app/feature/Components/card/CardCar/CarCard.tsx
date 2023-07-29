@@ -1,23 +1,31 @@
 import React from 'react'
 import CC from './CarCard.module.css'
 import Image from 'next/image'
+import ImageFill from '../../Image/ImageFill'
 
 interface Card {
     name: string,
     plat: string,
     img: string,
-    seksi: string
+    seksi: string,
+    status: string
 }
 
 
-export default function CarCard({ name = "Expander", plat = "DK 1206 XY", img = "", seksi="" }: Card) {
+export default function CarCard({
+    name = "Expander",
+    plat = "DK 1206 XY",
+    img = "",
+    seksi = "",
+    status = "Terpinjam"
+}: Card) {
 
-    function Terpinjam({seksi: string})
-    {
-        return(
-            <> 
+    function Status({ status, seksi }: any) {
+        return (
+            <>
                 <div className={CC['Terpinjam']}>
-                    Terpinjam {seksi}
+                    <div>{status}</div>
+                    {seksi}
                 </div>
             </>
         )
@@ -31,32 +39,28 @@ export default function CarCard({ name = "Expander", plat = "DK 1206 XY", img = 
                 id={name}
                 className={CC['CardLayout']}
 
-            >   
+            >
                 <div className={CC['Layout__img']} >
 
                     {
-                        terpinjam.length === 0 ? <Terpinjam seksi={seksi} /> :<></>
+                        seksi.length != 0 ? <Status status={status} seksi={seksi} /> : <></>
                     }
-                    <Image
-                        src={`/KendaraanDinas/${img}.jpg`}
-                        width={310}
-                        height={190}
-                        style={{ objectFit: "cover", display: "block" }}
-                        alt="Picture of the author"
-                        quality={50}
 
-                    />
+                    <ImageFill src={img} />
+
+
+                    <div className={CC['Layout__act']} >
+                        <div className={CC['Layout__CarName']} >
+                            <span className={CC['CarName']} >{name}</span>
+                        </div>
+                        <div className={CC['Layout__Button']} >
+                            <div className={CC['CarPLAT']} >{plat}</div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div className={CC['Layout__act']} >
-                    <div className={CC['Layout__CarName']} >
-                        <div className={CC['CarName']} >{name}</div>
 
-                    </div>
-                    <div className={CC['Layout__Button']} >
-                        <div className={CC['CarPLAT']} >{plat}</div>
-                    </div>
-                </div>
             </div>
 
         </div>

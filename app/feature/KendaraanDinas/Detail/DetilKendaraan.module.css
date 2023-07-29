@@ -51,10 +51,13 @@
 }
 
 
-/* 
+
 .layout__detail{
-     background: blue;
-} */
+     /* background: blue; */
+     position: relative;
+     display: grid;
+     grid-template-rows: 0.2fr 0.8fr;
+}
 
 .detail__header{
     display: grid;
@@ -81,7 +84,41 @@
 }
 
 .detail__form{
-    margin-top: 34px;
     display: grid;
+    grid-template-rows: 0.1fr 0.8fr 0.1fr;
+
+    gap: 20px;
+    /* background: red; */
+}
+
+.date{
+     padding: 0 0;
+     display: grid;
+     grid-template-columns: 0.5fr 0.5fr;
+     gap: 20px; 
+     text-align: center;
+}
+
+.datepick,.availabilty{
+  
+    padding: 10px 15px;
+    
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.datepick{
+    background: #212121;
+    color: #fafbfc;
+}
+
+.availabilty{
+    background: #25D366;
+    color: #fafbfc;
+}
+
+.Destination{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }

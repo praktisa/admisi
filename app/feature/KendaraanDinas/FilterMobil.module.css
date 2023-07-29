@@ -15,4 +15,6 @@
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 30px;
 }

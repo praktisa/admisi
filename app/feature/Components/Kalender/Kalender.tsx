@@ -24,8 +24,8 @@ const Kalender = forwardRef(({ onClose }: any, ref: any) => {
 
     useLayoutEffect(() => {
 
-        ref.current = ChosenDate
-        console.log("ref.current", ref.current)
+        ref.current.Kalender = ChosenDate
+        console.log("ref.current", ref.current.Kalender)
 
     }, [ChosenDate])
 

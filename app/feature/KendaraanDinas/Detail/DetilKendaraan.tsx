@@ -4,23 +4,33 @@ import DKD from './DetilKendaraan.module.css'
 import ButtonBack from '@Components/Button/ButtonBack/ButtonBack'
 import Image from 'next/image'
 import Kalender from '@Components/Kalender/Kalender'
+import Pinjam from '@feature/KendaraanDinas/Pinjam/Pinjam'
+import TextArea from '@Components/Input/TextArea/TextArea'
 
 interface inter__pinjam {
     data: any
 }
 
 
-
 export default function DetilKendaraan({ data }: inter__pinjam) {
 
     const KalenderRef = useRef<React.MutableRefObject<string[] | null>>()
+    const TujuanRef = useRef<React.MutableRefObject<string | null>>()
+    const RangkaRef = useRef<React.MutableRefObject<string | null>>()
+    const SliderRef = useRef<HTMLDivElement | null>(null)
     // case baru diatas merupakan useRef MutableObject
 
-    const SliderRef = useRef<HTMLDivElement | null>(null)
+    const PostRef = useRef<any>({
+        Kalender: [],
+        Tujuan: "",
+        Rangka: ""
+    })
+
+
 
     const { str_plat, str_nama, str_img, date_servis } = data
 
-    function CEKREF() {
+    function PinjamMobil() {
         console.log("KalenderRef", KalenderRef.current)
     }
 
@@ -49,11 +59,10 @@ export default function DetilKendaraan({ data }: inter__pinjam) {
                                 alt={str_img}
                                 quality={50}
                             />
-                            {/* <Kalender ref={KalenderRef} /> */}
                         </div>
 
                         <div className={DKD['slide__back']} >
-                            <Kalender ref={KalenderRef} onClose={() => ShowSlider(false)} />
+                            <Kalender ref={PostRef} onClose={() => ShowSlider(false)} />
                         </div>
 
                     </div>
@@ -68,13 +77,19 @@ export default function DetilKendaraan({ data }: inter__pinjam) {
                     </div>
 
                     <div className={DKD['detail__form']} >
-                        <div onClick={() => ShowSlider(true)} >Pilih Tanggal</div>
-                        <div>
-                            <label htmlFor="tujuan">Tujuan Peminjaman</label>
-                            <textarea id="tujuan" rows={8} cols={45} placeholder={`Tujuan Pengunaan ${str_nama} ...`} ></textarea>
+                        <div className={DKD['date']} >
+                            <div className={DKD['datepick']} onClick={() => ShowSlider(true)} >Pilih Tanggal</div>
+                            <div className={DKD['availabilty']} >Hari Ini tersedia</div>
                         </div>
-                        <div>
-                            Pinjam Mobil
+
+                        <div className={DKD['Destination']}>
+                            <TextArea label={"Dalam Rangka"} />
+                            <TextArea label={"Tujuan"} />
+                        </div>
+                        <div className={DKD['Submit']} >
+                            <Pinjam
+                                PostData={PostRef}
+                            />
                         </div>
                     </div>
                 </div>

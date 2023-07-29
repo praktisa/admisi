@@ -95,13 +95,18 @@ a {
   text-decoration: none;
 }
 
-input{
+input, textarea{
   border: 0;
   background: transparent;
   outline: none;
   font-size: 16px;
   letter-spacing: 1px;
 
+}
+
+textarea {
+  resize:none;
+  
 }
 
 input::placeholder{
