@@ -1,4 +1,4 @@
-import DetilKendaraan from '@feature/KendaraanDinas/Detail/DetilKendaraan'
+import Detail from '@/app/feature/KendaraanDinas/Detail/Detail'
 import getKendaraanByPlat from '@feature/KendaraanDinas/Detail/fetcher/getKendaraanByPlat'
 
 import React from 'react'
@@ -13,13 +13,8 @@ export default async function page({ params }: Param) {
 
     return (
         <>
-            {
-                data
-                    ?
-                    <DetilKendaraan data={data.data} />
-                    :
-                    <div>Loading ...</div>
-            }
+
+            <Detail data={data.data} />
 
         </>
     )

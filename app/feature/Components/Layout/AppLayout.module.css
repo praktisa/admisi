@@ -18,4 +18,10 @@
     grid-area: main;
 
     padding: 38px 60px;
+    position: relative;
+
+    /* background: red; */
+    overflow: hidden;
+
+    /* width: 100px; */
 }

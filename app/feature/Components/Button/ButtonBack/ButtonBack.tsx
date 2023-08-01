@@ -15,8 +15,8 @@ export default function ButtonBack({ children }: ButtonBack_Inter) {
     }, [router])
 
     return (
-        <div style={{ cursor: "pointer" }} onClick={() => Kembali()} >
+        <span style={{ cursor: "pointer" }} onClick={() => Kembali()} >
             {children}
-        </div>
+        </span>
     )
 }

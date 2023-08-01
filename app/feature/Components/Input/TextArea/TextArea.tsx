@@ -1,5 +1,5 @@
 import React from 'react'
-import Label from '../_Label/Label'
+import LabelArea from '../_Label/TextArea/LabelArea'
 
 
 interface TextArea__Inter {
@@ -9,11 +9,11 @@ interface TextArea__Inter {
 const TextArea = ({ label }: TextArea__Inter) => {
     return (
 
-        <Label htmlFor='Area' label={label} >
-            <textarea id={"Area"} placeholder={``} >
+        <LabelArea htmlFor='Area' label={label} >
+            <textarea spellCheck="false" id={"Area"} rows={0} placeholder={``} >
 
             </textarea>
-        </Label>
+        </LabelArea>
     )
 }
 

@@ -11,14 +11,16 @@ interface ChildNode {
     modal: React.ReactNode
 }
 
-export default function KendaraanDinasLayout({ children, modal }: ChildNode) {
+export default function KendaraanDinasRootLayout({ children }: ChildNode) {
 
     // console.log("MODALLL", modal)
     return (
         <>
-            {modal}
 
+            <h1>Kendaraan Dinas</h1>
             {children}
+
+
         </>
 
     )

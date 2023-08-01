@@ -2,16 +2,21 @@
     position:relative;
     border: 1px;
     display: grid;
-    background: #212121;
-    color: #fafbfc;
-
-   
     padding: 15px 15px 15px 15px;
- 
     border-radius: 4px;
     cursor: text;
-    
+
+   
+    background: transparent;
+    color: #212121;
+    border: 2px solid #212121;
 }
+
+.label textarea{
+    color: #212121;
+}
+
+
 
 
 
@@ -21,7 +26,7 @@
     left:0;
     padding: 15px;
     transform:translate(0);
-    /* font-weight: bold; */
+    font-weight: bold;
     transition-duration:300ms;
     user-select: none;
   
@@ -29,7 +34,7 @@
 
 .label:focus-within > .span,
 input:not(:placeholder-shown) + .span, textarea:not(:placeholder-shown) + .span{
-    color:#eaeaea80;
+    color:#21212180;
     font-size: 13px;
     transform:translateY(-10px);
     

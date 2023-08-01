@@ -24,7 +24,7 @@ export default function Page() {
 
     return (
         <>
-            <h1>Kendaraan Dinas</h1>
+
 
             <GridMobil>
                 {

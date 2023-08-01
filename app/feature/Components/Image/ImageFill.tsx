@@ -4,9 +4,10 @@ import IF from './ImageFill.module.css'
 
 interface ImageFill_inter {
     src: string
+    animated: boolean
 }
 
-export default function ImageFill({ src }: ImageFill_inter) {
+export default function ImageFill({ src, animated }: ImageFill_inter) {
 
 
 
@@ -15,9 +16,14 @@ export default function ImageFill({ src }: ImageFill_inter) {
             <Image
                 src={`/KendaraanDinas/${src}.jpg`}
                 fill
-                className={IF['IMG']}
+                className={`
+                    ${IF['IMG']} 
+                    ${animated === true ? IF['animated'] : null}
+                `}
                 alt={src}
-                quality={60}
+                quality={90}
+                priority
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
         </>
     )

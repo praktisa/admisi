@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import DKD from './DetilKendaraan.module.css'
 import ButtonBack from '@Components/Button/ButtonBack/ButtonBack'
 import Image from 'next/image'
-import Kalender from '@Components/Kalender/Kalender'
+import Kalender from '@/app/feature/Components/Kalender/KalenderCookie'
 import Pinjam from '@feature/KendaraanDinas/Pinjam/Pinjam'
 import TextArea from '@Components/Input/TextArea/TextArea'
 

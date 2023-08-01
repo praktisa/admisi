@@ -1,8 +1,7 @@
 'use client'
-import React, { ForwardedRef, forwardRef, Fragment, useLayoutEffect } from 'react'
+import React, { forwardRef, Fragment, useEffect } from 'react'
 import K from './Kalender.module.css'
 import useCalendar from './_function/useCalendar'
-import { setCookie, getCookie } from 'cookies-next';
 
 
 const Kalender = forwardRef(({ onClose }: any, ref: any) => {
@@ -14,7 +13,7 @@ const Kalender = forwardRef(({ onClose }: any, ref: any) => {
 
         return (
             <>
-                <h1>{head}</h1>
+                <h2>{head}</h2>
                 <div onClick={() => before()} className={K['arrow']} >&#8593;</div>
                 <div onClick={() => next()} className={K['arrow']} >&#8595;</div>
                 <div className={K['arrow']} onClick={onClose} >&#x2715;</div>
@@ -22,19 +21,12 @@ const Kalender = forwardRef(({ onClose }: any, ref: any) => {
         )
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
 
         ref.current.Kalender = ChosenDate
         console.log("ref.current", ref.current.Kalender)
 
     }, [ChosenDate])
-
-    // function GetChosenDate()
-    // {
-    //     let {current} = ref
-    //     current = ChosenDate
-    //     // ref?.current
-    // }
 
     return (
         <>

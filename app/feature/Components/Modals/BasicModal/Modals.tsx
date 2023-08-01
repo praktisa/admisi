@@ -2,7 +2,8 @@
 import React, { ReactNode } from 'react'
 
 import M from './Modals.module.css'
-import ButtonBack from '@Components/Button/ButtonBack/ButtonBack'
+import Blur from './Blur/Blur'
+import ModalContainer from './Container/Container'
 
 
 interface Inter__Modals {
@@ -14,18 +15,13 @@ export default function Modals({ children }: Inter__Modals) {
 
     return (
         <>
-            <div className={M['container']} >
-
-                <div className={M['layout']} >
-
-
-                    <div className={M['layout__content']} >
-                        {children}
-                    </div>
-
-                </div>
-
-            </div>
+            <Blur>
+                <ModalContainer>
+                    {/* <div className={M['layout__content']} > */}
+                    {children}
+                    {/* </div> */}
+                </ModalContainer>
+            </Blur>
         </>
     )
 }

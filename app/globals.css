@@ -87,7 +87,8 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #101010
+  background: #101010;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
@@ -106,7 +107,10 @@ input, textarea{
 
 textarea {
   resize:none;
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  letter-spacing: -0.3px;
+ 
 }
 
 input::placeholder{

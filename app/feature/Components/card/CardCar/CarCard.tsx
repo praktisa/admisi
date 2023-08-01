@@ -1,6 +1,5 @@
 import React from 'react'
 import CC from './CarCard.module.css'
-import Image from 'next/image'
 import ImageFill from '../../Image/ImageFill'
 
 interface Card {
@@ -46,7 +45,7 @@ export default function CarCard({
                         seksi.length != 0 ? <Status status={status} seksi={seksi} /> : <></>
                     }
 
-                    <ImageFill src={img} />
+                    <ImageFill src={img} animated={false} />
 
 
                     <div className={CC['Layout__act']} >
