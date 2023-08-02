@@ -16,13 +16,14 @@ const KalenderCookie = dynamic(() => import('@/app/feature/Components/Kalender/K
 
 interface Detail_Inter {
     data: any
+    terpinjam: any
 }
 
 
 
-export default function Detail({ data }: Detail_Inter) {
+export default function Detail({ data, terpinjam }: Detail_Inter) {
 
-    const { str_plat, str_nama, str_img, date_servis } = data
+    const { ID, STR_NAMA, STR_PLAT, STR_IMG, DATE_SERVIS } = data
 
     const SliderRef = useRef<HTMLDivElement | null>(null)
 
@@ -44,8 +45,8 @@ export default function Detail({ data }: Detail_Inter) {
         return (
             <>
                 <div className={D['head']}>
-                    <h2>{str_nama}</h2>
-                    <h4>{str_plat}</h4>
+                    <h2>{STR_NAMA}</h2>
+                    <h4>{STR_PLAT}</h4>
                 </div>
 
                 <div className={D['body']}>
@@ -67,7 +68,7 @@ export default function Detail({ data }: Detail_Inter) {
 
                 <div className={D['foot']}>
                     <ButtonBack> &#x2190; kembali</ButtonBack>
-                    <Pinjam PostData={null} />
+                    <Pinjam PostData={ID} />
                 </div>
             </>
         )
@@ -82,11 +83,11 @@ export default function Detail({ data }: Detail_Inter) {
                 </div>
 
                 <div className={D['grid__right']} ref={SliderRef} >
-                    <KalenderCookie onClose={() => ShowSlider(false)} />
+                    <KalenderCookie terpinjam={terpinjam} onClose={() => ShowSlider(false)} />
                 </div>
 
             </div>
-            <ImageFill src={str_img} animated={true} />
+            <ImageFill src={STR_IMG} animated={true} />
         </>
     )
 }

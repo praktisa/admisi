@@ -1,15 +1,18 @@
 'use client'
 import React from 'react'
+import postPinjamMobil from './fetcher/postPinjamMobil'
 
 interface Pinjam_inter {
     PostData: any
 
 }
 
-export default function Pinjam({ PostData }: Pinjam_inter) {
+export default async function Pinjam({ PostData }: Pinjam_inter) {
 
-    function POST() {
-        console.log("POST", PostData)
+    async function POST() {
+        let Response = await postPinjamMobil(PostData)
+
+        console.log("Response", Response)
     }
 
     return (

@@ -1,14 +1,22 @@
 'use client'
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import K from './Kalender.module.css'
 import useCalendar from './_function/useCalendar'
 import { setCookie } from 'cookies-next'
 
+interface TanggalTerpinjam {
+    Peminjam: string
+    Status: string
+    TanggalPinjam: string
+}
 
-export default function Kalender({ onClose }: any) {
+export default function Kalender({ terpinjam, onClose }: any) {
 
     const { CurrentDate, ChosenDate, HeadCalendar, CreateCalendar, ChangeMonth, ChoseDate } = useCalendar(new Date())
 
+    const [DataTerpinjam, setDataterpinjam] = useState<TanggalTerpinjam[]>([])
+
+    console.log("terpinjam", DataTerpinjam)
 
     function HeaderController({ head, next, before }: any) {
 
@@ -25,6 +33,24 @@ export default function Kalender({ onClose }: any) {
     useEffect(() => {
         setCookie("kalender", ChosenDate)
     }, [ChosenDate])
+
+    useEffect(() => {
+        let ArrObj = []
+        for (var i = 0; i < terpinjam.length; i++) {
+            let StringTanggal = JSON.parse(terpinjam[i]['STR_TGL'])
+
+            for (var u = 0; u < StringTanggal.length; u++) {
+                let DataKonversi = {
+                    "Peminjam": terpinjam[i]['STR_PEMINJAM'],
+                    "Status": terpinjam[i]['STR_STATUS'],
+                    "TanggalPinjam": StringTanggal[u]
+                }
+                ArrObj.push(DataKonversi)
+            }
+        }
+
+        setDataterpinjam(ArrObj)
+    }, [terpinjam])
 
 
 
@@ -55,14 +81,22 @@ export default function Kalender({ onClose }: any) {
                             let Display = new Date(tangs).getDate()
                             let Sekarang = new Date().setHours(0, 0, 0, 0) === new Date(tangs).setHours(0, 0, 0, 0)
 
-                            let Disable = new Date().setHours(0, 0, 0, 0) > new Date(tangs).setHours(0, 0, 0, 0)
-                            let Disable_Style = Disable ? K['BedaBulan'] : null
+
                             let Klasifikasi_Tanggal = ChosenDate.includes(id) ? K['terpilih'] : Sekarang ? K['HariIni'] : K['tidakTerpilih']
                             let CheckBox_Tanggal = ChosenDate.includes(id) ? true : false
                             let Perbedaan_Bulan = new Date(tangs).getMonth() != CurrentDate.getMonth() ? K['BedaBulan'] : null
 
+                            let obj = DataTerpinjam.find(o => o.TanggalPinjam === tangs);
 
-                            // console.log("id", id, Sekarang)
+                            let Terpinjam = false
+                            if (obj != undefined) {
+                                Terpinjam = true
+                            }
+
+                            let Disable = new Date().setHours(0, 0, 0, 0) > new Date(tangs).setHours(0, 0, 0, 0) || Terpinjam
+                            let Disable_Style = Disable ? K['BedaBulan'] : null
+
+                            let Terpinjam_Style = Terpinjam ? K['Terpinjam'] : null
 
                             return (
                                 <Fragment key={id}>
@@ -75,9 +109,13 @@ export default function Kalender({ onClose }: any) {
                                             onChange={(e: any) => { ChoseDate(e, id); }}
                                             disabled={Disable}
                                         />
+                                        {
+                                            //@ts-ignore
+                                        }
                                         <label
                                             htmlFor={`${i}`}
-                                            className={`${K['tanggal__display']} ${Klasifikasi_Tanggal} ${Disable_Style}`}
+                                            className={`${K['tanggal__display']} ${Klasifikasi_Tanggal} ${Disable_Style} ${Terpinjam_Style}`}
+                                            data-peminjam={Terpinjam === true ? obj?.Peminjam : null}
                                         >
                                             {Display}
                                         </label>

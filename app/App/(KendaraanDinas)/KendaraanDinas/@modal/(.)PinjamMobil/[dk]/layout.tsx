@@ -1,5 +1,5 @@
-import Blur from "@/app/feature/Components/Modals/BasicModal/Blur/Blur"
-import ModalContainer from "@/app/feature/Components/Modals/BasicModal/Container/Container"
+import Blur from "@feature/Components/Modals/BasicModal/Blur/Blur"
+import ModalContainer from "@feature/Components/Modals/BasicModal/Container/Container"
 
 export const metadata = {
     title: 'Admisi | Pinjam Mobil',

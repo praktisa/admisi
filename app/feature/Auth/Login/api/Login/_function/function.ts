@@ -1,7 +1,6 @@
 import { createHash } from 'node:crypto';
-import Connection from '@/app/feature/Database/Connection';
-
-
+import Connection from '@Connection';
+import { ReadFileJSON } from '@/app/feature/Kepegawaian/Upload/CRUDJSON';
 
 
 export function AmbilDataPegawaiDariJSON(DataPegawai: any, NIP: string) {
@@ -16,6 +15,14 @@ export function AmbilDataPegawaiDariJSON(DataPegawai: any, NIP: string) {
     }
     return Result
 }
+
+export function AmbilDataPegawaiDariJSONDirectory(NIP: string) {
+    let DataPegawai: string = ReadFileJSON(`${process.env.DIRECTORY}`)
+    let Result = AmbilDataPegawaiDariJSON(DataPegawai, NIP)
+
+    return Result
+}
+
 
 export function TokenNIP(NIP: string) {
     let RandomNumber = Math.floor(Math.random() * 100)

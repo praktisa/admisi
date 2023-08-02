@@ -1,8 +1,11 @@
-import Shimerloading from "@/app/feature/Components/loading/Shimerloading";
+import Shimerloading from "@feature/Components/loading/Shimerloading";
 
 
 export default function Loading() {
     return (
-        <Shimerloading loop={0} />
+
+        <>
+            <Shimerloading loop={0} />
+        </>
     )
 }

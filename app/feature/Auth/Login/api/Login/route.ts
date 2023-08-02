@@ -1,7 +1,7 @@
-import { ReadFileJSON } from '@/app/feature/Kepegawaian/Upload/CRUDJSON';
+// import { ReadFileJSON } from '@/app/feature/Kepegawaian/Upload/CRUDJSON';
 import { NextRequest, NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-import { AmbilDataPegawaiDariJSON, CekNIP, TokenNIP, BuatSession, HapusSession } from './_function/function';
+import { AmbilDataPegawaiDariJSON, AmbilDataPegawaiDariJSONDirectory, CekNIP, TokenNIP, BuatSession, HapusSession } from './_function/function';
 
 
 
@@ -10,8 +10,11 @@ export async function POST(request: NextRequest, response: NextResponse) {
     const res = await request.json()
     let NIP: string = JSON.stringify(res)
 
-    let DataPegawai: string = ReadFileJSON(`${process.env.DIRECTORY}`)
-    let Result = AmbilDataPegawaiDariJSON(DataPegawai, NIP)
+    // let DataPegawai: string = ReadFileJSON(`${process.env.DIRECTORY}`)
+    // let Result = AmbilDataPegawaiDariJSON(DataPegawai, NIP)
+
+    let Result = AmbilDataPegawaiDariJSONDirectory(NIP)
+
     let ApakahAda = Object.keys(Result).length
 
     // console.log("ApakahAda", DataPegawai)
